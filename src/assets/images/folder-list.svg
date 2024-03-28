@@ -1,0 +1,17 @@
+<!-- <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<g>
+	<path d="M56.981,11.5H28.019V6.52c0-1.665-1.354-3.02-3.019-3.02H3.019C1.354,3.5,0,4.854,0,6.52V20.5h60v-5.98
+		C60,12.854,58.646,11.5,56.981,11.5z"/>
+	<path d="M0,53.48c0,1.665,1.354,3.02,3.019,3.02h53.962c1.665,0,3.019-1.354,3.019-3.02V22.5H0V53.48z"/>
+</g> -->
+<!--colored-->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<path d="M26.515,10.5l-5-7H0v53h60v-37v-2v-7H26.515z M31.515,17.5l-3.571-5H58v5H31.515z"/>
+<!--greyed -->
+<!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<path d="M26.525,10.5l-4.618-6.451L21.515,3.5H0v53h60v-46H26.525z M58,12.5v5H31.536l-3.579-5H58z M2,54.5v-49h18.485l5,7h0.012
+	l4.69,6.551c0.195,0.272,0.501,0.417,0.813,0.418V19.5h27v35H2z"/>
+</svg> -->

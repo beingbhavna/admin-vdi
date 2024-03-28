@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="card card-bordered fullheight-fixed">
+    <div class="card-header">
+      <div class="header-flex-container">
+        <div class="card-title col-4"></div>
+        <div class="paging-block col-4"></div>
+      </div>
+    </div>
+
+    <div class="card-body scrollable">
+      <div class="app-form">
+        <form
+          novalidate
+          name="serverViewForm"
+          id="serverViewForm"
+          [formGroup]="serverViewFormGroup"
+        >
+          <div class="row">
+            <div class="col-lg-2 col-sm-4">
+              <div class="form-group trad foc"></div>
+              <div class="form-group trad foc">
+                <label for="server_name" class="mb-0">Server Name</label>
+                <input
+                  type="text"
+                  autocomplete="servername"
+                  class="form-control form-control-sm"
+                  name="server_name"
+                  id="server_name"
+                  formControlName="server_name"
+                />
+              </div>
+              <div class="form-group trad foc">
+                <label for="ip_address" class="mb-0">IP Address</label>
+                <input
+                  type="text"
+                  autocomplete="username"
+                  class="form-control form-control-sm"
+                  name="ip_address"
+                  id="ip_address"
+                  formControlName="ip_address"
+                />
+              </div>
+
+              <div class="form-group trad foc">
+                <label for="vpn_name" class="mb-0">VPN</label>
+                <input
+                  type="vpn_name"
+                  autocomplete="vpn_name"
+                  class="form-control form-control-sm"
+                  formControlName="vpn_name"
+                />
+              </div>
+
+              <div class="form-group trad foc required">
+                <label for="database_name" class="mb-0">Database</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="database_name"
+                  maxlength="50"
+                  id="database_name"
+                  formControlName="database_name"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

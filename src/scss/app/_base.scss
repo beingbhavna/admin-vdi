@@ -1,0 +1,253 @@
+html{
+    font-size: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    height: 100%;
+}
+#yellow {
+    height: 100%;
+    background: yellow;
+  }
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 0.01em;
+    height: 100%;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: $white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-weight: 300;
+    color: #373e43;
+}
+h1 {
+    font-size: 44px;
+    line-height: 55px;
+    letter-spacing: -0.08px;
+}
+h2 {
+    font-size: 31px;
+    line-height: 40px;
+}
+h3 {
+    font-size: 27px;
+    line-height: 35px;
+}
+h4 {
+    font-size: 22px;
+    line-height: 31.88px;
+}
+h5{
+    font-size: 18px;
+    line-height: 25.88px;
+}
+app-footer{
+    background: #f6f9fa;
+    
+    border-top: 1px solid #eaecee;
+}
+.btn-group{
+    position: relative;
+    display: inline-block;
+    &.dropup{
+        display: inline-flex;
+    }
+    .dropdown-menu{
+        border: 1px solid $control-border;
+        box-shadow: 0 1px 3px 1px rgba($black, .13);
+    }
+}
+.btn-primary{
+    color: $white;
+}
+ngx-i2k2-loading-spinner{
+    .spinner{
+        background: rgba($white, .7);
+    }
+    .lds-roller div:after {        
+        background: $primary;
+    }
+}
+.tab-container{
+    .nav-tabs .nav-link{
+        border-radius: 0;
+    }
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
+
+.topmargin{
+    //margin-top: 100px;
+    @include media-breakpoint-up(lg) { 
+      margin-top: 0px
+    }
+  }
+  
+.fullheight {
+    position: relative;
+    height: 100vh;
+    //margin-top: 50px;
+    @include media-breakpoint-up(lg) { 
+        height: 100vh;
+    }
+}
+.fullheight-min {
+    position: relative;
+    min-height: calc(100vh - 85px );
+    margin: 0;
+    @include media-breakpoint-up(lg) { 
+        min-height: calc(100vh - 85px );
+    }
+}
+.fullheight-fixed {
+    position: relative;
+    height: calc(100vh - 85px );
+    margin: 0;
+    @include media-breakpoint-up(lg) { 
+        height: calc(100vh - 85px );
+    }
+}
+.font-16 {
+    font-size: 16px;
+}
+.logo-center {
+    display:block;
+    margin:auto;
+}
+
+//---- css for dropdown item delete ----
+a.dropdown-item:not([href]):not([tabindex]) {
+    color: #212529 !important;    
+}
+a.dropdown-item:not([href]):not([tabindex]):hover, a.dropdown-item:not([href]):not([tabindex]):focus {
+    text-decoration: none;
+    cursor: pointer;
+}   
+
+@media screen and (max-width: 840px) {
+    .btn-group {
+      .dropdown-menu.dropdown-menu-right
+      {
+          right: -120px !important;
+      }
+  }  
+}
+
+//---- css tabset ----
+.nav.nav-tabs {
+    .nav-item.active{   
+        .nav-link.active{
+            color: $primary !important;
+            opacity: 1;
+        }
+    }
+      
+}
+.nav-tabs .nav-link { 
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: montserrat;
+    font-size: 14px;
+    letter-spacing: .06em;
+    vertical-align: middle;
+    color: $body-color;
+}
+.card-header a:not(.btn) {
+    padding-top: 4px !important; 
+    padding-bottom: 4px !important; 
+}   
+
+.tile {  
+    width: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+	background: #fff;		
+	padding: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+
+    p {        
+        font-size: 27px;
+        line-height: 35px;
+    }
+  
+  .title {
+		margin-top: 0px;
+	}
+    border: 1px solid #d8d8d8;
+
+    &.open {
+       .title {
+            color:$color-success;
+        }
+		&:hover {     
+			border: 1px solid darken($color-success, 10%);
+		}		
+    }
+  
+    &.closed {
+        .title {
+            color: $color-danger;
+        }
+		&:hover {
+			border: 1px solid darken($color-danger, 10%);
+		}		
+    }
+  
+    &.live {
+        .title {
+            color: $primary;
+        }
+	    &:hover {
+		    border: 1px solid darken($primary, 10%);
+	    }		
+    }
+  
+    &.re-open {
+       .title {
+            color: $color-complete;
+        }
+		&:hover {
+			border: 1px solid darken($color-complete, 10%);
+		}	
+    }
+    &.resolved {
+        .title {
+            color: $primary;
+         }
+         &:hover {
+            border: 1px solid darken($primary, 10%);
+        }	
+    }
+  
+    &.pending {
+        .title{
+            color: $color-warning;
+        }
+		&:hover {
+			border: 1px solid darken($color-warning, 10%);
+		}	
+    } 
+}
+.width-25 {
+    min-width: 25%;
+}
+.width-20 {
+    min-width: 20%;
+}

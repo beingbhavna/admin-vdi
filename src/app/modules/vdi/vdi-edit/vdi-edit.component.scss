@@ -1,0 +1,21 @@
+.was-validated .form-group.trad {
+  input.ng-invalid,
+  select.ng-invalid {
+    border: 1px solid lightcoral;
+  }
+  input.ng-valid,
+  select.ng-valid {
+    border: 1px solid lightgreen;
+  }
+}
+
+// #checkboxDiv {
+//   height: 28vh;
+//   border-bottom: 2px solid #dee2e6;
+// }
+
+.large_checkbox {
+  width: 1.5rem;
+  height: 1.2rem;
+  vertical-align: middle;
+}

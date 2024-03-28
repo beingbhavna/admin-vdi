@@ -1,0 +1,111 @@
+<div class="container-fluid">
+  <div class="table-container">
+    <div class="card card-bordered fullheight-min">
+      <button class="btn btn-sm btn-default backBtn mt-2" (click)="back()">
+        ‹
+      </button>
+      <div class="card-header">
+        <div class="header-flex-container">
+          <div class="card-title col-4">SERVERS LIST</div>
+          <div class="paging-block col-4">
+            <ngx-i2k2-table-outer-pagination
+              *ngIf="notFound == false"
+              [itemCount]="itemCount"
+              [lastSeenIdMax]="lastSeenIdMax"
+              [lastSeenIdMin]="lastSeenIdMin"
+              [lastOffset]="lastOffset"
+              (loadTable)="reloadItems($event, false)">
+            </ngx-i2k2-table-outer-pagination>
+          </div>
+          <div class="filter-container col-4">
+            <div id="bubbleBlock" class="bubble-block">
+              <app-ngx-i2k2-bubble
+                (resetFilterData)="resetFilter()"
+                [items]="config.data[0]"
+                [showCountIcon]="config.settings.show_count_icon"
+              >
+              </app-ngx-i2k2-bubble>
+            </div>
+            <div class="filter-block" filterToggle>
+              <a class="filter-slider">
+                <svg-icon
+                  class="filter-slider"
+                  src="assets/images/sliders.svg"
+                ></svg-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="basicTable_wrapper" class="dataTables_wrapper no-footer">
+          <div class="data-table p-0" *ngIf="notFound == false">
+            <ngx-i2k2-table
+              id="registrations-setup-list"
+              headerTitle="Server List"
+              [items]="serverList"
+              [indexColumn]="false"
+              [itemCount]="itemCount"
+              [lastSeenIdMax]="lastSeenIdMax"
+              [lastSeenIdMin]="lastSeenIdMin"
+              [lastOffset]="lastOffset"
+              [offset]="offset"
+              [selectColumn]="false"
+              [expandOnIndexColClick]="false"
+              [expandOnRowClick]="false"
+              [paginationStyleType]="paginationStyle"
+            >
+              <ng-template #rowDetailExpand let-rowitem="item"> </ng-template>
+              <ngx-i2k2-table-column
+                [property]="'server_name'"
+                [header]="'Name'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+              <ngx-i2k2-table-column
+                [property]="'ip'"
+                [header]="'Ip Address'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+              <ngx-i2k2-table-column
+                [property]="'database'"
+                [header]="'DB Name'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+              <ngx-i2k2-table-column
+                [property]="'vpn'"
+                [header]="'VPN'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+              <ngx-i2k2-table-column [colType]="'custom'">
+                <ng-template #colHeaderComponent>Action</ng-template>
+                <ng-template #colDetailComponent let-rowitem="item">
+                  <div class="btn-group" dropdown>
+                    <a
+                      id="changeStatus"
+                      (click)="
+                        $event.stopPropagation(); redirectAsPerAction(rowitem)
+                      "
+                      >View</a
+                    >
+                  </div>
+                </ng-template>
+              </ngx-i2k2-table-column>
+            </ngx-i2k2-table>
+          </div>
+          <div class="not-found-container" *ngIf="notFound == true">
+            <h5>No Data Available...</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-server-filter
+  [resetFlter]="resetFilterFlag"
+  (updateEvent)="updateTable($event)"
+></app-server-filter>

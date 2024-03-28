@@ -1,0 +1,193 @@
+{
+  "app_id": "abcd-1234-efgh-5678-ijkl",
+  "app_name": "AdminVDIApp",
+  "app_desc": "App Gui",
+  "app_icon": "assets/images/icon-hexbluelight.svg#icon-hexbluelight",
+  "data_type": "full",
+  "selected_modules": [],
+  "app_modules": [
+    {
+      "id": 1,
+      "permission": [
+        "admin:vdi:common:management"
+      ],
+      "name": "Dashboards",
+      "desc": "Various module dashbaords for quick access, select any.",
+      "route": "/module",
+      "icon": "assets/images/home.svg",
+      "css": "",
+      "main_modules": [
+        {
+          "permission": [
+            "admin:vdi:common:management"
+          ],
+          "selected_sub_modules": [],
+          "name": "Dashboards",
+          "sub_modules": [
+            {
+              "id": 1,
+              "permission": [
+                "admin:vdi:common:management"
+              ],
+              "name": "Main Dashboard",
+              "desc": "",
+              "route": "/main",
+              "icon": "",
+              "css": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "permission": [
+        "admin:vdi:common:management"
+      ],
+      "name": "SERVERS",
+      "desc": "Various Author Planning Module features ",
+      "route": "/server",
+      "icon": "assets/images/book.svg",
+      "css": "",
+      "main_modules": [
+        {
+          "permission": [
+            "admin:vdi:common:management"
+          ],
+          "selected_sub_modules": [],
+          "name": "SERVERS",
+          "sub_modules": [
+            {
+              "id": 1,
+              "permission": [
+                "admin:vdi:common:management"
+              ],
+              "name": "Servers",
+              "desc": "",
+              "route": "/server",
+              "icon": "",
+              "css": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "permission": [
+        "admin:vdi:common:management"
+      ],
+      "name": "Setting",
+      "desc": "Link for path selector module",
+      "route": "/pathselector",
+      "icon": "assets/images/cpu.svg",
+      "css": "",
+      "main_modules": [
+        {
+          "permission": [
+            "admin:vdi:common:management"
+          ],
+          "selected_sub_modules": [],
+          "name": "VDI",
+          "sub_modules": [
+            {
+              "id": 1,
+              "permission": [
+                "admin:vdi:common:management"
+              ],
+              "name": "Vdi",
+              "desc": "",
+              "route": "/vdi",
+              "icon": "",
+              "css": ""
+            },
+            {
+              "id": 2,
+              "permission": [
+                "admin:vdi:common:management"
+              ],
+              "name": "Vdi Add",
+              "desc": "",
+              "route": "/vdi/vdiadd",
+              "icon": "",
+              "css": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "app_routes": {
+    "_server": {
+      "getServerList": {
+        "desc": "get server list",
+        "method": "GET",
+        "url": "http://localhost:10105/api/v1/Server/get/list"
+      },
+      "getServerListById": {
+        "desc": "get server view list by id",
+        "method": "GET",
+        "url": "http://localhost:10105/api/v1/Server/#id"
+      },
+      "getServerWiseFilterList": {
+        "desc": "get server filter",
+        "method": "POST",
+        "url": "http://localhost:10105/api/v1/Server/list"
+      }
+    },
+    "_vdi": {
+      "addVdiDetails": {
+        "desc": "add vdi",
+        "method": "POST",
+        "url": "http://localhost:10105/api/v1/Vdi/addVdi"
+      },
+      "getVdiList": {
+        "desc": "get vdi list",
+        "method": "GET",
+        "url": "http://localhost:10105/api/v1/Vdi/get/Vdilist"
+      },
+      "getVdiListById": {
+        "desc": "get vdi view by id",
+        "method": "GET",
+        "url": "http://localhost:10105/api/v1/Vdi/#connectionId/#serverId"
+      },
+      "getVdiWiseFilterList": {
+        "desc": "get vdi filter",
+        "method": "POST",
+        "url": " http://localhost:10105/api/v1/Vdi/Vdilist"
+      },
+      "getServerWiseFilterList": {
+        "desc": "get server filter",
+        "method": "POST",
+        "url": "http://localhost:10105/api/v1/Server/list"
+      },
+      "reset2FA": {
+        "desc": "get reset 2FA",
+        "method": "POST",
+        "url": "http://localhost:10105/api/v1/Vdi/#userId/#userName/reset2fa"
+      },
+      "disableVdi": {
+        "desc": "disable vdi",
+        "method": "DELETE",
+        "url": "http://localhost:10105/api/v1/Vdi/#userid/disableVdi"
+      },
+      "updateVdi": {
+        "desc": "disable vdi",
+        "method": "PUT",
+        "url": "http://localhost:10105/api/v1/Vdi/#connectionId/editVdi"
+      }
+    },
+    "_login": {
+      "saveKey": {
+        "desc": "save generated public rsa key",
+        "method": "POST",
+        "url": "http://localhost:10100/api/v1/users/#userId/privatepublickey/add"
+      },
+      "checkKeys": {
+        "desc": "check generated remote_public_key & local_private_public_key keys",
+        "method": "GET",
+        "url": "http://localhost:10100/api/v1/users/#userId/check/keys"
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+<div class="container-fluid">
+  <div class="card card-bordered fullheight-fixed">
+    <div class="card-body scrollable">
+      <div class="card-header">
+        <div class="header-flex-container">
+          <div class="card-title col-4">VDI FEATURES</div>
+          <div class="app-form"></div>
+        </div>
+        <br />
+        <form
+          novalidate
+          name="editVdiForm"
+          id="editVdiForm"
+          [formGroup]="editVdiFormGroup"
+        >
+          <div class="row">
+            <div class="col-lg-2 col-sm-4">
+              <div class="form-group trad foc required">
+                <label for="name" class="mb-0">User Name</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="name"
+                  id="name"
+                  formControlName="name"
+                />
+              </div>
+              <div class="form-group trad foc required">
+                <label for="hostname" class="mb-0">Host Name</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="hostname"
+                  id="hostname"
+                  formControlName="hostname"
+                />
+              </div>
+              <div class="form-group trad foc required">
+                <label for="server_name" class="mb-0">Server Name</label>
+                <input
+                  class="form-control form-control-sm"
+                  id="server_name"
+                  name="server_name"
+                  formControlName="server_name"
+                />
+              </div>
+              <div class="form-group trad foc required">
+                <label for="connection_name" class="mb-0"
+                  >Connection Name</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  id="connection_name"
+                  name="connection_name"
+                  formControlName="connection_name"
+                />
+              </div>
+
+              <div class="form-group trad foc required">
+                <label for="image_os_type" class="mb-0">OS Type</label>
+                <input
+                  class="form-control form-control-sm"
+                  id="image_os_type"
+                  name="image_os_type"
+                  formControlName="image_os_type"
+                />
+              </div>
+              <!-- <div class="form-group trad foc required">
+                <label for="printer_name" class="mb-0">Printer Name</label>
+                <input
+                  class="form-control form-control-sm"
+                  id="printer_name"
+                  name="printer_name"
+                  formControlName="printer_name"
+
+                />
+              </div>
+              <div class="form-group trad foc required">
+                <label for="security" class="mb-0">Security</label>
+                <select
+                  class="form-control form-control-sm"
+                  id="security"
+                  name="security"
+                  formControlName="security"
+
+                >
+                  <option value="">Please select</option>
+                  <option value="nla">nla</option>
+                  <option value="any">any</option>
+                </select>
+              </div> -->
+            </div>
+
+            <div class="col-lg-2 col-sm-4">
+              <div
+                class="form-group trad foc required"
+                *ngFor="let item of getVdiData[1].vdifeatures"
+              >
+                <label for="name" class="mb-0">{{ item.parameter_name }}</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  name="name"
+                  id="name"
+                  formControlName="name"
+                />
+              </div>
+            </div>
+            <!-- <div class="col-lg-2 col-sm-4">
+              <div class="form-group trad foc required">
+
+                <input
+                  type="checkbox"
+                  class="p-2 mb-0"
+                  class="large_checkbox"
+                />
+                Disable Audio
+
+              </div>
+              <div class="form-group trad foc required">
+
+                <input
+                  type="checkbox"
+                  class="p-2 mb-0"
+                  class="large_checkbox"
+                />
+                Enable Drive
+
+              </div>
+              <div class="form-group trad foc required">
+                <input
+                  type="checkbox"
+                  class="p-2 mb-0"
+                  class="large_checkbox"
+                />
+                Ignore Cert
+              </div>
+              <div class="form-group trad foc required">
+                <input
+                  type="checkbox"
+                  class="p-2 mb-0"
+                  class="large_checkbox"
+                />
+                Enable Printing
+              </div>
+              <div class="form-group trad foc required">
+                <input
+                  type="checkbox"
+                  class="p-2 mb-0"
+                  class="large_checkbox"
+                />
+                Enable Font Smoothing
+              </div>
+            </div> -->
+          </div>
+          <br />
+        </form>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button
+        class="btn btn-sm btn-primary"
+        id="submitBtn"
+        type="submit"
+        (click)="onformSubmit()"
+      >
+        Update
+      </button>
+    </div>
+  </div>
+</div>

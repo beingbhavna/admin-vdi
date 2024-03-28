@@ -1,0 +1,16 @@
+{
+    "application_guid": "",
+    "application_type": "development",
+    "token" : {
+        "url" : "http://localhost:10105/api/v1/Token",
+        "method" : "POST"
+    },
+    "appmodulesandroutes" :{
+        "url" : "./assets/config/appmodulesandroutes.json",
+        "method" : "GET"
+    },
+    "getpathselectionflag": {
+        "url": "http://localhost:10100/api/v1/filesystem/get/root/path/selected/flag",
+        "method": "GET"
+    }
+}

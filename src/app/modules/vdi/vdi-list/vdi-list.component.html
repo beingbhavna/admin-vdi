@@ -1,0 +1,160 @@
+<div class="container-fluid">
+  <div class="table-container">
+    <div class="card card-bordered fullheight-min">
+      <button class="btn btn-sm btn-default backBtn mt-2" (click)="back()">
+        ‹
+      </button>
+      <div class="card-header">
+        <div class="header-flex-container">
+          <div class="card-title col-4">VDI LIST</div>
+          <div class="paging-block col-4">
+            <ngx-i2k2-table-outer-pagination
+              *ngIf="notFound == false"
+              [itemCount]="itemCount"
+              [lastSeenIdMax]="lastSeenIdMax"
+              [lastSeenIdMin]="lastSeenIdMin"
+              [lastOffset]="lastOffset"
+              (loadTable)="reloadItems($event, false)"
+            >
+            </ngx-i2k2-table-outer-pagination>
+          </div>
+          <div class="filter-container col-4">
+            <div id="bubbleBlock" class="bubble-block">
+              <app-ngx-i2k2-bubble
+                (resetFilterData)="resetFilter()"
+                [items]="config.data[0]"
+                [showCountIcon]="config.settings.show_count_icon"
+              >
+              </app-ngx-i2k2-bubble>
+            </div>
+            <div class="filter-block" filterToggle>
+              <a class="filter-slider">
+                <svg-icon
+                  class="filter-slider"
+                  src="assets/images/sliders.svg"
+                ></svg-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="basicTable_wrapper" class="dataTables_wrapper no-footer">
+          <div class="data-table p-0" *ngIf="notFound == false">
+            <ngx-i2k2-table
+              id="registrations-setup-list"
+              headerTitle="Vdi List"
+              [items]="items"
+              [indexColumn]="false"
+              [itemCount]="itemCount"
+              [lastSeenIdMax]="lastSeenIdMax"
+              [lastSeenIdMin]="lastSeenIdMin"
+              [lastOffset]="lastOffset"
+              [offset]="offset"
+              [selectColumn]="false"
+              [expandOnIndexColClick]="false"
+              [expandOnRowClick]="false"
+              [paginationStyleType]="paginationStyle"
+            >
+              <ng-template #rowDetailExpand let-rowitem="item"> </ng-template>
+              <ngx-i2k2-table-column
+                [property]="'connection_name'"
+                [header]="' Connection Name'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+              <ngx-i2k2-table-column
+                [property]="'name'"
+                [header]="'User'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+              <ngx-i2k2-table-column
+                [property]="'server_name'"
+                [header]="'Server'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+              <ngx-i2k2-table-column
+                [property]="'hostname'"
+                [header]="' Host Ip'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+              <ngx-i2k2-table-column
+                [property]="'image_os_type'"
+                [header]="'OS Type'"
+                [sortable]="false"
+              >
+              </ngx-i2k2-table-column>
+
+              <ngx-i2k2-table-column [colType]="'custom'">
+                <ng-template #colHeaderComponent>Action</ng-template>
+                <ng-template #colDetailComponent let-rowitem="item">
+                  <div class="btn-group" dropdown>
+                    <div>
+                      <a
+                        id="changeStatus"
+                        (click)="$event.stopPropagation(); vdiEdit(rowitem)"
+                        >Edit</a
+                      >
+                    </div>
+                    <a
+                      id="changeStatus"
+                      (click)="
+                        $event.stopPropagation(); redirectAsPerAction(rowitem)
+                      "
+                      >View</a
+                    >
+                    <a
+                      class="icon-action-dropdown"
+                      dropdownToggle
+                      aria-controls="dropdown-autoclose1"
+                      placement="right"
+                    >
+                      <svg-icon src="assets/images/chevron-down.svg"></svg-icon>
+                    </a>
+
+                    <ul
+                      id="dropdown-autoclose1"
+                      *dropdownMenu
+                      class="dropdown-menu dropdown-menu-right"
+                      role="menu"
+                      aria-labelledby="button-autoclose1"
+                    >
+                      <li role="menuitem">
+                        <a
+                          class="dropdown-item"
+                          (click)="$event.stopPropagation(); reset2FA(rowitem)"
+                          >Reset 2FA</a
+                        >
+                      </li>
+                      <li role="menuitem">
+                        <a
+                          class="dropdown-item"
+                          (click)="
+                            $event.stopPropagation(); disableVdi(rowitem)
+                          "
+                          >Disable</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </ng-template>
+              </ngx-i2k2-table-column>
+            </ngx-i2k2-table>
+          </div>
+          <div class="not-found-container" *ngIf="notFound == true">
+            <h5>No Data Available...</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-vdi-filter
+  #featureFilter
+  [resetFlter]="resetFilterFlag"
+  (updateEvent)="updateTable($event)"
+></app-vdi-filter>
